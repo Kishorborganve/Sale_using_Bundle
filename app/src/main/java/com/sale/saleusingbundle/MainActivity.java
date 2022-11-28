@@ -1,0 +1,32 @@
+package com.sale.saleusingbundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnSale;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnSale= findViewById(R.id.btnSale);
+
+        btnSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,Amount_details.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title","Sale");
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+    }
+}
